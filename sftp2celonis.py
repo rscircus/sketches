@@ -5,6 +5,7 @@ list_login_data = [
     {
         'celonis_url' : 'some.celonis.cloud',
         'celonis_api_token': '1234567890',
+        'id_or_name_of_data_pool': 'abcd12-and-so-on',
         'sftp_hostname': 'sftp.host.name',
         'sftp_username': 'admin',
         'sftp_password': 'password',
@@ -61,7 +62,7 @@ login = {
 celonis_manual = get_celonis(**login)
 
 # push data
-data_pool = celonis.pools.find("id_or_name_of_data_pool")
+data_pool = celonis.pools.find(dld['id_or_name_of_data_pool'])
 
 #
 # celonis.pools
