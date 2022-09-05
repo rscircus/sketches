@@ -17,11 +17,12 @@ list_login_data = [
 # TODO: remove after creation:
 #with open("logindata.yaml", 'w') as yamlfile:
 #    data = yaml.dump(list_login_data, yamlfile)
-#    print("Write successful"):w
+#    print("Write successful")
 
 
 with open("logindata.yaml", "r") as yamlfile:
     list_login_data = yaml.load(yamlfile, Loader=yaml.FullLoader)
+    # TODO: eventually this is not necessary
     dict_login_data = list_login_data[0]
     dld = dict_login_data
     print("Read successful")
@@ -41,8 +42,8 @@ with pysftp.Connection(dld['sftp_hostname'], username=dld['sftp_username'], pass
 # TODO: for test purposes / delete
 import pandas as pd
 
-df = pd.DataFrame({'A': [2, 4, 8, 0], 'B': [2, 0, 0, 0], 'C': [10, 2, 1, 8]})
-df.head()
+df = pd.read_csv(dld['sftp_filename'])
+df.head() #check it
 
 # pycelonis
 from pycelonis import get_celonis
